@@ -67,7 +67,6 @@ int lo_message_add_varargs_internal(lo_message m, const char *types,
                                     va_list ap, const char *file,
                                     int line);
 
-static
 int lo_send_varargs_internal(lo_address t, const char *file,
                  const int line, const char *path,
                  const char *types, va_list ap)

@@ -25,6 +25,8 @@ extern "C" {
  * \file lo.h The liblo main headerfile and high-level API functions.
  */
 
+#include <stdarg.h>
+
 #include "lo/lo_endian.h"
 #include "lo/lo_types.h"
 #include "lo/lo_osc_types.h"
@@ -124,6 +126,16 @@ int lo_address_get_ttl(lo_address t);
  * \return -1 on failure.
  */
 int lo_send(lo_address targ, const char *path, const char *type, ...);
+
+
+
+  /** 
+	  \brief giving the varargs version external linkage.
+	  this is necessary to call it from an enclosing varargs function
+  */
+  int lo_send_varargs_internal(lo_address t, const char *file,
+							   const int line, const char *path,
+							   const char *types, va_list ap);
 
 /**
  * \brief Send a OSC formatted message to the address specified, 
